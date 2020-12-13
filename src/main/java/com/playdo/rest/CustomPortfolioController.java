@@ -20,7 +20,6 @@ public class CustomPortfolioController {
     @Autowired
     public CustomPortfolioController(PortfolioRepository repo) {
         this.repo = repo;
-        System.out.println(CustomPortfolioController.class);
     }
 
     @GetMapping("/portfolios")
