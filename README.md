@@ -1,4 +1,4 @@
-# AntwerpSpringDataRest
+# AntwerpSpringDataRest 
 
 ## Overview
 Just wanted to create a simple SpringBoot Spring Data Rest project. Seems some developers think Spring Rest and Spring Data Rest are the same but are actually very different in what is deployed OOTB (out-of-the-box). Spring Data Rest deploys endpoints OOTB (ie. GET, POST, PUT, DELETE etc.) for Spring repositories that extend CrudRepository, JpaRepository or others such as MongoDB and Redis. The endpoints follow the HAETOAS pattern, providing link navigation within the resulting JSON. 
