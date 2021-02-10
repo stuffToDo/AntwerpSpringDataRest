@@ -23,3 +23,18 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- script: |
+    ls -la
+    cd target
+    ls -la
+- task: CopyFiles@2
+  displayName: 'Copy Files to the Artifact Staging Area'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: 'target/AntwerpSpringDataRest-0.0.1-SNAPSHOT.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish files in the Artifact Staging Area'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: 'antwerp.jar'
