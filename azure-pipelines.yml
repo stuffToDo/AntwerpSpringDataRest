@@ -37,4 +37,3 @@ steps:
   displayName: 'Publish files in the Artifact Staging Area'
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
-    ArtifactName: 'antwerp.jar'
