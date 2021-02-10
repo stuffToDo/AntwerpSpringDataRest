@@ -31,7 +31,7 @@ steps:
     Contents: '**/*-spring-boot.jar'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish files in the Artifact Stagin Area'
+  displayName: 'Publish files in the Artifact Staging Area'
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
     ArtifactName: 'antwerp.jar'
