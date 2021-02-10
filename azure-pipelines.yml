@@ -25,6 +25,6 @@ steps:
     goals: 'package'
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)target/AntwerpSpringDataRest-0.0.1-SNAPSHOT-spring-boot.jar'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/target/AntwerpSpringDataRest-0.0.1-SNAPSHOT-spring-boot.jar'
     ArtifactName: 'antwerp.jar'
     publishLocation: 'Container'
