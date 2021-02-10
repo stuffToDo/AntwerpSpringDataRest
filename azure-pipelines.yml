@@ -13,7 +13,6 @@ steps:
 
 - script: sudo apt-get update
 - script: sudo apt-get install -y default-jre
-- script: 'pwd'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -24,15 +23,15 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- script: 'pwd'
+- script: ls -la
 - task: CopyFiles@2
   displayName: 'Copy Files to the Artifact Staging Area'
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**/AntwerpSpringDataRest-0.0.1-SNAPSHOT-spring-boot.jar'
+    Contents: '**/*-spring-boot.jar'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
-  displayName: ''
+  displayName: 'Publish files in the Artifact Stagin Area'
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
     ArtifactName: 'antwerp.jar'
