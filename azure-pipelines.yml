@@ -25,8 +25,14 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 - script: 'pwd'
-- task: PublishBuildArtifacts@1
+- task: CopyFiles@2
+  displayName: 'Copy Files to the Artifact Staging Area'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/target/AntwerpSpringDataRest-0.0.1-SNAPSHOT-spring-boot.jar'
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**/AntwerpSpringDataRest-0.0.1-SNAPSHOT-spring-boot.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+- task: PublishBuildArtifacts@1
+  displayName: ''
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
     ArtifactName: 'antwerp.jar'
-    publishLocation: 'Container'
