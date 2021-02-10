@@ -23,9 +23,10 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-- script: ls -la
-- script: cd target
-- script: ls -la
+- script: |
+    ls -la
+    cd target
+    ls -la
 - task: CopyFiles@2
   displayName: 'Copy Files to the Artifact Staging Area'
   inputs:
